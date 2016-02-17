@@ -10,6 +10,7 @@ require('../styles/index.scss');
 
 let lastPos = 0;
 let global = {
+  //be careful with using global. I would pick a different name next time
   "game": ["","","","","","","","",""],
   "score": [0,0],
   "turn": true, // true = X, false = O
@@ -22,6 +23,7 @@ let global = {
 let clearAll = function() {
   $('.box').empty();
   $('.box').css("background-color", "#151469");
+
   global.turnCount = 1;
   global.game = ["","","","","","","","",""];
   global.gameOver = false;
@@ -29,6 +31,7 @@ let clearAll = function() {
 
 let updateScore = function() {
   document.querySelector('.score').innerHTML = "Score: <br />	<small>X - </small>" + global.score[0] +
+  //why use the above, why not jquery? and html method
   " / <small> O - </small>"  + global.score[1];
 };
 
@@ -43,6 +46,7 @@ let winAnnounce = function(win) {
       global.turn = false;
       updateGameCount();
       setTimeout(clearAll, 3000);
+      // this scares me. you shuld pretty much never use a setTimeout there is typically always a better way
       break;
 
     case "o":
@@ -67,6 +71,8 @@ let winAnnounce = function(win) {
 };
 
 let winListner = function() {
+  //you already know Im going to ride you about semantic class names
+
   let row1 = $('#top-left1').text() + $('#top-middle2').text() + $('#top-right3').text();
   let row2 = $('#middle-left4').text() + $('#middle-middle5').text() + $('#middle-right6').text();
   let row3 = $('#bottom-left7').text() + $('#bottom-middle8').text() + $('#bottom-right9').text();
@@ -96,9 +102,13 @@ let winListner = function() {
     winAnnounce("d");
   }
 };
-
+// I like this above there are better ways to do it for sure but this is a good
+//Im just gonna hack away at it and MIFW (make it ... work)
 //-------------------When the webpage is finished loading-------------------
 $(document).ready(() => {
+// typically with a docready statement you put it in a nicely organized place
+// such as at the very bottom of the file
+
   //Initialze Board
   document.querySelector('.turn').innerHTML = "Turn: <br /><strong>X</strong>";
   $('.winner').hide();
@@ -110,6 +120,8 @@ $(document).ready(() => {
   $('.reset').on('click', function() {
     $('.box').empty();
     $('.box').css("background-color", "#151469");
+    // once or twice its okay to set the background color with jquery but if you
+    // do it frequently it typically means theres a better ways
     $('.winner').hide();
     global.score.fill(0);
     updateScore();
@@ -124,6 +136,8 @@ $(document).ready(() => {
     lastPos = gameboardBox.attr("position");
     if (gameboardBox.text() !== "") {
       $('.winner').show().text("The box is taken!");
+      // on larger scale apps and in the future a good thing to consider is
+      //having all of the text already in the html and showing and hiding it.
       return;
     }
 
@@ -234,4 +248,7 @@ let updateBoard = function(e, lastPos) {
       });
   }
 }
+// a better way to do this logn if statement is to break it into smaller
+//functions. You can still use the ifs but it's kind of chunky. When you GET
+// if inside if as well its usually a sign that there is another way.
 };

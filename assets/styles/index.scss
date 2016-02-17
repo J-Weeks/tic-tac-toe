@@ -2,6 +2,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// Gotta listen to your linter.  I know it seems annoying now but it builds
+// habits.
 
 $background: #151469;
 $def-color: #f0f0f0;
@@ -137,6 +139,8 @@ button {
   margin-bottom: 0;
   text-align: center;
   padding: 6px 12px;
+  // even things like standardized paddings or settings can be stored in variables
+  // just a note for next time.
   vertical-align: middle;
   overflow: visible;
   white-space: nowrap;

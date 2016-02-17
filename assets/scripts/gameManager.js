@@ -8,6 +8,7 @@ $(document).ready(() => {
     console.error("No games for this user!");
   }
   $('').on('submit', function(e) {
+    //what is the above targeting?
     e.preventDefault();
     $.ajax({
       url: myApp.baseUrl + '/games/' + myApp.user.id,
@@ -29,6 +30,7 @@ $(document).ready(() => {
         console.error("No User!");
       }
       var formDataGame = new FormData();
+      // do you use the above?
       e.preventDefault();
       $.ajax({
         url: myApp.baseUrl + '/create',
@@ -61,6 +63,7 @@ $.ajax({
     "game": {
       "cell": {
         "index": e.target.index()
+        //nice
         "value": e.target.text()
       },
       "over": false

@@ -1,10 +1,13 @@
 'use strict';
 
 window.myApp = {
+  //I know why you dud this but lets talk about why and when to do this.
     baseUrl: 'http://tic-tac-toe.wdibos.com',
 };
 
 $(document).ready(() => {
+  //again usually only once in the bottom. This also should only appear once
+  //throughout all of the js files
 //------------------------------------------------------------------------------
 //---------------------------User Manager---------------------------------------
 //----------------SIGN UP----------------
@@ -44,6 +47,9 @@ $(document).ready(() => {
       $('#myModal1').modal('hide');
       $('.sign-in1').hide();
       $('.sign-up1').hide();
+      // why hide and show all of these?
+      //also next time a better way is to use the same classnames and call
+      // .hide once
       $('.sign-out1').show();
       $('.change-password1').show();
       myApp.user = data.user;
@@ -74,6 +80,7 @@ $(document).ready(() => {
       console.log(data);
       console.log("Password changed");
       $('#myModal3').modal('hide');
+      // lol, gotta work on semantic naming
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
