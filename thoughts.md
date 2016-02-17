@@ -1,18 +1,3 @@
 # Tic Tac Toe Project
 
-## First Thoughts
--. I like how you started to break up your logic.  Declaring your variables
-first.
-
--. I really like this.  Some people have set classes and toggle them, having
-seperate scss attributes. But this is a great method as well.
-
-```javascript
-$('.box').css("background-color", "#151469");
-```
-
--. Why this, why not use jquery here and the `.html()` method? ln31
-
-```javascript
-document.querySelector('.score')
-```
+Aaron, very nice.  I really like your function names, very semantic and the starts of great coding habits. This project bodes very well. I'll discuss more with you in person as this is a public repo, but you can see I left comments.  We'll go over what they mean and ways to continue to improve. 
